@@ -1,4 +1,5 @@
 import sympy as sp
+import math
 from sympy.utilities import lambdify
 
 def newton(x0,func,tol,iterMax):
@@ -13,15 +14,17 @@ def newton(x0,func,tol,iterMax):
             error = error del metodo dado por |func(xk)|
             k = iteraciones realizadas
 
-    Ejemplo: [xk,error,k]=newton(0.5,'exp(x)-x-10',1e-10,1000)
+    Ejemplo: [xk,error,k]=newton(0.5,'math.exp(x)-x-10',1e-10,1000)
     """
     # Convertir el texto a expresiones simbólicas
-    fsym = sp.sympify(func)
-    fdsym = fsym.diff()
+    x = sp.sympify("x")
+    fsym= sp.sympify(func)
+
+    fdsym= fsym.diff(x)
     
     # Crear funciones numéricas a partir de expresiones simbólicas
-    f = lambdify( fsym, "numpy")
-    fd = lambdify( fdsym, "numpy")
+    f = lambdify(x, fsym)
+    fd = lambdify( x, fdsym)
 
     xk=x0
     for i in range(1,iterMax):
@@ -31,3 +34,6 @@ def newton(x0,func,tol,iterMax):
         if error<tol:
            return (xk, tol, i)
     return (xk, tol, iterMax)
+
+
+print(newton(0.5,'exp(x)-x-10',1e-10,1000))

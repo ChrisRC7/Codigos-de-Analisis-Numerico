@@ -1,3 +1,4 @@
+import math
 def biseccion(a, b, func, tol, iterMax):
     """
     Aproximacion del cero de la funcion func utilizando el metodo de la Biseccion
@@ -22,5 +23,7 @@ def biseccion(a, b, func, tol, iterMax):
                 a= xk
             error= abs(f(xk))
             if error < tol:
-                return (xk, error, tol)
+                return (xk, error, i)
         return (xk, error, iterMax)
+
+print(biseccion(2,3,'math.exp(x)-x-10',1e-10,1000))
