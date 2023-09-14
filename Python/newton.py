@@ -21,11 +21,15 @@ def newton(x0,func,tol,iterMax):
     fsym= sp.sympify(func)
 
     fdsym= fsym.diff(x)
-    
+    print(x)
+    print(func)
+    print(fsym)
+    print(fdsym)
     # Crear funciones numéricas a partir de expresiones simbólicas
     f = lambdify(x, fsym)
     fd = lambdify( x, fdsym)
-
+    print(f)
+    print(fd)
     xk=x0
     for i in range(1,iterMax):
         #Verificar que fd(xk) no sea cero

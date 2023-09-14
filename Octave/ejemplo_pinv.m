@@ -17,8 +17,9 @@ for k=1:iterMax
     break
   end
 end
+
 display('Pseudoinversa')
-pInv=X
+Inv=X
 
 %Paso 2: Solucion del problema
 x=X*b
