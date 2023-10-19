@@ -15,4 +15,4 @@ yv=polyval(a,xv); %p(x)=a3*x^3+a2*x^2+a1*x+a0, donde a=[a3 a2 a1 a0]
 hold on
 plot(xv,yv,'r')
 plot(xv,fv,'b')
-
+input('Presiona Enter para continuar...')
